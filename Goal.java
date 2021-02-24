@@ -93,10 +93,12 @@ public class Goal extends Thread{
 
     dimension = panel.getSize();
 
-    if ((x + dx + XSIZE) < dimension.width){
+    if (((x + dx + XSIZE) < dimension.width)&&mvright==false){
            x+= dx;
     }
-        
+    if((x + dx + XSIZE) == dimension.width){
+       mvright =false;
+    }   
         
 
     if ((x + dx + XSIZE) == dimension.width){

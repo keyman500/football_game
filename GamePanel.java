@@ -39,8 +39,15 @@ public class GamePanel extends JPanel {
       	ball.start();
    }
    public void kickBall(){
+      if(football!=null){
+       if(football.gety()<0){
+         football = new Football(this, bat, infoPanel,player);
+         football.start();
+       }
+      }else{
       football = new Football(this, bat, infoPanel,player);
-      football.start();
+      football.start();}
+   
    }
 
 

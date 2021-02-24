@@ -141,6 +141,10 @@ public class Football extends Thread{
 
      }
      }
+
+     public int gety(){
+        return this.y;
+     }
  
  
 }
