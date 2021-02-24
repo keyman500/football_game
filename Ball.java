@@ -55,7 +55,7 @@ public class Ball extends Thread {
       dx = 0;
       dy = 5;
   
-      infoPanel.displayInfo();				// display information on information panel	
+     // infoPanel.displayInfo();				// display information on information panel	
    }
  
    public Rectangle2D.Double getBoundingRectangle() {	// obtain bounding rectangle for ball
@@ -113,7 +113,7 @@ public class Ball extends Thread {
 	  }
 	  catch (InterruptedException e) {};
 
-	  infoPanel.decrementTime(1000);		// decrease time by 1000 millis in info panel
+	//  infoPanel.decrementTime(1000);		// decrease time by 1000 millis in info panel
       }
 
       if (y > dimension.height)	{			// increment misses by 1 in information panel
@@ -138,7 +138,7 @@ public class Ball extends Thread {
 			move ();
 			draw();
 			sleep (50);			// increase value to slow down ball
-			infoPanel.decrementTime(50);	// decrease time by 50 millis in info panel
+		//	infoPanel.decrementTime(50);	// decrease time by 50 millis in info panel
 		}
 	}
 	catch(InterruptedException e) {}

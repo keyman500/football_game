@@ -27,21 +27,21 @@ public class InfoPanel extends JPanel {
 		// create labels
 	
 		hitsL = new JLabel ("# Hits");
-		missesL = new JLabel ("# Misses");
+		missesL = new JLabel ("# Misses   ");
 		pointsL = new JLabel ("Points");
-		timeL = new JLabel ("Time Remaining");
+
 
 		// create text fields
 	
 		hitsTF = new JTextField ();
 		missesTF = new JTextField ();
 		pointsTF = new JTextField ();
-		timeTF = new JTextField ();
+
 
 		hitsTF.setEditable(false);
 		missesTF.setEditable(false);
 		pointsTF.setEditable(false);
-		timeTF.setEditable(false);
+
 
 		// create layout manager
 
@@ -55,19 +55,17 @@ public class InfoPanel extends JPanel {
 		add (hitsL);
 		add (missesL);
 		add (pointsL);
-		add (timeL);
 
 		add (hitsTF);
 		add (missesTF);
 		add (pointsTF);
-		add (timeTF);
+
 
 		resetInfo();
   	}
 
 	public void resetInfo () {
 		hits = misses = points = 0;
-		time = 300000;			// maximum time to play game in milliseconds
 	}
 
 	public void incrementHits () {
@@ -82,18 +80,16 @@ public class InfoPanel extends JPanel {
 		points = points + numPoints;
 	}
 
-	public void decrementTime (int millis) {
-		time = time - millis;
+	public void decreasePoints(int points){
+		if(this.points>-1){
+		this.points-= points;}
 	}
 
-	public void displayInfo () {
-	
-		int timeSecs = time / 1000;			// convert to seconds
 
+	public void displayInfo () {
 		hitsTF.setText (hits+"");
 		missesTF.setText (misses+"");
 		pointsTF.setText (points+"");
-		timeTF.setText (timeSecs+"");
 	}
 
 }

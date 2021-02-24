@@ -30,6 +30,8 @@ public class Football extends Thread{
     private Bat bat;
     private Player player;
     private Goal goal;
+    private boolean hit;
+    private boolean kicked;
  
     SoundManager soundManager;
              
@@ -38,6 +40,8 @@ public class Football extends Thread{
        panel = p;
        this.infoPanel = infoPanel;
        this.player = player;
+       this.hit = false;
+       this.kicked = false;
 
  
        Graphics g = panel.getGraphics ();
@@ -55,9 +59,9 @@ public class Football extends Thread{
        setColour();					// set colour of the ball
  
        dx = 0;
-       dy = -30;
+       dy = -10;
    
-       infoPanel.displayInfo();				// display information on information panel	
+      infoPanel.displayInfo();				// display information on information panel	
     }
   
     public Rectangle2D.Double getBoundingRectangle() {	// obtain bounding rectangle for ball
@@ -96,8 +100,22 @@ public class Football extends Thread{
        Rectangle2D.Double goalRect = goal.getBoundingRectangle();
        Rectangle2D.Double myRect = this.getBoundingRectangle();
        if(myRect.intersects(goalRect)){
+         this.hit = true;
           System.out.println("goal!");
+          y = -5;
+          infoPanel.incrementPoints(10);
+          infoPanel.incrementHits();
+          infoPanel.displayInfo();	
+      
        }
+       if ((y <0)&&hit==false&&kicked==false)	{			
+         infoPanel.incrementMisses();
+         infoPanel.decreasePoints(10);
+         infoPanel.displayInfo();	
+         kicked = true;
+   
+      }
+         
 
  
     /*   
