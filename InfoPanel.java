@@ -81,7 +81,7 @@ public class InfoPanel extends JPanel {
 	}
 
 	public void decreasePoints(int points){
-		if(this.points>-1){
+		if((this.points - points)>-1){
 		this.points-= points;}
 	}
 
