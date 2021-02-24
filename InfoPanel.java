@@ -26,7 +26,7 @@ public class InfoPanel extends JPanel {
 
 		// create labels
 	
-		hitsL = new JLabel ("# Hits");
+		hitsL = new JLabel ("# Goals");
 		missesL = new JLabel ("# Misses   ");
 		pointsL = new JLabel ("Points");
 
