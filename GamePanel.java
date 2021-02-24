@@ -49,6 +49,10 @@ public class GamePanel extends JPanel {
       football.start();}
    
    }
+   public void startGoal(){
+      goal = new Goal(this,150,5);
+      goal.start();
+   }
 
 
    public void drawGameEntities() {

@@ -197,7 +197,7 @@ public class GameWindow extends JFrame
 		}
 		else
 		if (command.equals(createBallB.getText())) {
-			gamePanel.startBall();
+			gamePanel.startGoal();
 		}
 		else
 		if (command.equals(exitB.getText())) {

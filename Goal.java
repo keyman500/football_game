@@ -97,13 +97,15 @@ public class Goal extends Thread{
            x+= dx;
     }
     if((x + dx + XSIZE) == dimension.width){
-       mvright =false;
+       mvright = true;
     }   
-        
-
-    if ((x + dx + XSIZE) == dimension.width){
-        moveLeft();
+    if (((x - dx) > 0)&&mvright==true){
+      x = x - dx;      
     }
+    if((x-dx)==0){
+   mvright=false;
+    }
+  
 
  /*   Rectangle2D.Double myRect = getBoundingRectangle();
     Rectangle2D.Double batRect = bat.getBoundingRectangle();

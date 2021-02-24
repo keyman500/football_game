@@ -53,7 +53,7 @@ public class Ball extends Thread {
       setColour();					// set colour of the ball
 
       dx = 0;
-      dy = 5;
+      dy = 10;
   
       infoPanel.displayInfo();				// display information on information panel	
    }
