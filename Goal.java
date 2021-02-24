@@ -19,14 +19,12 @@ public class Goal extends Thread{
    private int dx;
    private int dy;
    boolean mvright;
-   private Football football;
 
    Graphics2D g2;
    private Color backgroundColor;
    private Dimension dimension;
 
-   public Goal (JPanel p, int xPos, int yPos,Football fb) {
-      this.football = fb;
+   public Goal (JPanel p, int xPos, int yPos) {
       panel = p;
       backgroundColor = panel.getBackground ();
       x = xPos;
@@ -74,25 +72,6 @@ public class Goal extends Thread{
    mvright=false;
     }
 
-    if(football==null){
-  //     System.out.println("it's null") ;
-      
-}else{
-
-    System.out.println("ok: "+football.gety());
-    Rectangle2D.Double myRect = getBoundingRectangle();
-    Rectangle2D.Double fbRect = football.getBoundingRectangle();
-    if(myRect.intersects(fbRect)){
-       System.out.println("goal");
-       try{
-          sleep(200);
-       }catch (InterruptedException e) {};
-
-       football.sety(-1);
-       
-    }
-
-   }
 
  /*   Rectangle2D.Double myRect = getBoundingRectangle();
     Rectangle2D.Double batRect = bat.getBoundingRectangle();

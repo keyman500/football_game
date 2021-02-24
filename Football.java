@@ -29,10 +29,12 @@ public class Football extends Thread{
  
     private Bat bat;
     private Player player;
+    private Goal goal;
  
     SoundManager soundManager;
              
-    public Football(JPanel p, Bat bat, InfoPanel infoPanel,Player player) {
+    public Football(JPanel p, Bat bat, InfoPanel infoPanel,Player player,Goal goal) {
+       this.goal = goal;
        panel = p;
        this.infoPanel = infoPanel;
        this.player = player;
@@ -72,7 +74,7 @@ public class Football extends Thread{
      //  infoPanel.displayInfo();				// update information displayed in info panel
     }
  
-    public void setColour () {				// set colour of the ball
+    public void setColour () {		
      colour = new Color(255, 255, 255);
  
     }
@@ -87,10 +89,16 @@ public class Football extends Thread{
  
     public void move () {
  
-       if (!panel.isVisible ()) return;
+       if (!panel.isVisible ()) {return;}
 
        y = y + dy;
-       
+
+       Rectangle2D.Double goalRect = goal.getBoundingRectangle();
+       Rectangle2D.Double myRect = this.getBoundingRectangle();
+       if(myRect.intersects(goalRect)){
+          System.out.println("goal!");
+       }
+
  
     /*   
        Rectangle2D.Double batRect = bat.getBoundingRectangle();
