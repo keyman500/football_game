@@ -63,9 +63,7 @@ public class Player {
       if (x - dx > 0)
 	  x = x - dx;      
 
-	  // check if x is outside the left side of the panel
-	  // NB: dimension.width is the width of the panel, and
-	  //     dimension.height is the height of the panel
+
    }
 
    public void moveRight () {
@@ -78,9 +76,7 @@ public class Player {
       if (x + dx + XSIZE < dimension.width)
 	  x = x + dx;      
 
-	  // check if x is outside the right side of the panel
-	  // NB: dimension.width is the width of the panel, and
-	  //     dimension.height is the height of the panel
+
    }
 
    public int getx(){

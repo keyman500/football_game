@@ -6,16 +6,10 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import javax.swing.JPanel;
 
-/**
-   A component that draws an alien face
-*/
 public class GamePanel extends JPanel {
    
    int x;
-   int y;			// reference position to draw entities in 2D space
-   
-   Bat bat;
-   Ball ball;
+   int y;	
    Goal goal;
    Player player;
    Football football;
@@ -24,9 +18,9 @@ public class GamePanel extends JPanel {
    SoundManager soundManager;
 
    public GamePanel (InfoPanel infoPanel) {
-	setBackground(Color.green);
+	setBackground(new Color(0,100,0));
 	this.infoPanel = infoPanel;
-	soundManager = SoundManager.getInstance();	// obtain reference to SoundManager
+	this.soundManager = SoundManager.getInstance();
    }
 
    public void createGameEntities() {
@@ -34,22 +28,17 @@ public class GamePanel extends JPanel {
        goal = new Goal(this,150,5);
    }
 
-   public void startBall() {
-	soundManager.playSound("background", true); // request sound manager to play background clip
-	ball = new Ball (this, bat, infoPanel);
-      	ball.start();
-   }
    public void kickBall(){
       
       if(football!=null){
        if(football.gety()<0){
          soundManager.playSound("kick", false);
-         football = new Football(this, bat, infoPanel,player,this.goal);
+         football = new Football(this,infoPanel,player,this.goal);
          football.start();
        }
       }else{
       soundManager.playSound("kick", false);
-      football = new Football(this, bat, infoPanel,player,this.goal);
+      football = new Football(this,infoPanel,player,this.goal);
       football.start();}
    }
    public void startGoal(){
@@ -100,7 +89,5 @@ public class GamePanel extends JPanel {
    public void paintComponent (Graphics g) {
 
       super.paintComponent(g);
-
-     //repaint();
    }
 }

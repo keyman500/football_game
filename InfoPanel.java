@@ -1,37 +1,36 @@
 import java.awt.Color;
-import javax.swing.*;			// need this for GUI objects
-import java.awt.*;			// need this for certain AWT classes
+import javax.swing.*;			
+import java.awt.*;			
 
 public class InfoPanel extends JPanel {
 
 	private int hits;
 	private int misses;
 	private int points;
-	private int time;
+
 
 	private JLabel hitsL;
 	private JLabel missesL;
 	private JLabel pointsL;
-	private JLabel timeL;
+
 
 	private JTextField hitsTF;
 	private JTextField missesTF;
 	private JTextField pointsTF;
-	private JTextField timeTF;
+
 
 
    	public InfoPanel () {
 
 		setBackground(Color.PINK);
 
-		// create labels
 	
 		hitsL = new JLabel ("# Goals");
 		missesL = new JLabel ("# Misses   ");
 		pointsL = new JLabel ("Points");
 
 
-		// create text fields
+
 	
 		hitsTF = new JTextField ();
 		missesTF = new JTextField ();
@@ -43,14 +42,13 @@ public class InfoPanel extends JPanel {
 		pointsTF.setEditable(false);
 
 
-		// create layout manager
 
 		GridLayout gridLayout;
 
 		gridLayout = new GridLayout(2, 4);
 		setLayout(gridLayout);
 
-		// add labels and text fields to panel
+
 
 		add (hitsL);
 		add (missesL);
@@ -77,7 +75,7 @@ public class InfoPanel extends JPanel {
 	}
 
 	public void incrementPoints (int numPoints) {
-		points = points + numPoints;
+		points+= numPoints;
 	}
 
 	public void decreasePoints(int points){

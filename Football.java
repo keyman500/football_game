@@ -25,9 +25,7 @@ public class Football extends Thread{
     Graphics2D g2;
     private Color backgroundColor;
     private Dimension dimension;
-    private Color colour = Color.RED;
  
-    private Bat bat;
     private Player player;
     private Goal goal;
     private boolean hit;
@@ -35,9 +33,9 @@ public class Football extends Thread{
  
     SoundManager soundManager;
              
-    public Football(JPanel p, Bat bat, InfoPanel infoPanel,Player player,Goal goal) {
+    public Football(JPanel p,InfoPanel infoPanel,Player player,Goal goal) {
        this.goal = goal;
-       panel = p;
+       this.panel = p;
        this.infoPanel = infoPanel;
        this.player = player;
        this.hit = false;
@@ -47,43 +45,36 @@ public class Football extends Thread{
        Graphics g = panel.getGraphics ();
        g2 = (Graphics2D) g;
        backgroundColor = panel.getBackground ();
+
  
-       this.bat = bat;					// set reference to bat
- 
-       soundManager = SoundManager.getInstance();	// get Singleton instance
+       this.soundManager = SoundManager.getInstance();	
  
        dimension = panel.getSize(); 
        x = player.getx();
-       y = player.gety() - 10;						// set y to top of the panel
+       y = player.gety() - 10;					
  
-       setColour();					// set colour of the ball
- 
+      	
        dx = 0;
        dy = -10;
    
-      infoPanel.displayInfo();				// display information on information panel	
+      this.infoPanel.displayInfo();			
     }
   
-    public Rectangle2D.Double getBoundingRectangle() {	// obtain bounding rectangle for ball
+    public Rectangle2D.Double getBoundingRectangle() {	
            return new Rectangle2D.Double (x, y, XSIZE, YSIZE);
     }
  
-    public void draw () {				// draw ball on the panel
+    public void draw () {				
        Graphics g = panel.getGraphics ();
        g2 = (Graphics2D) g;
  
-       g2.setColor (colour);
+       g2.setColor (new Color(255, 255, 255));
        g2.fill (new Ellipse2D.Double (x, y, XSIZE, YSIZE));
  
-     //  infoPanel.displayInfo();				// update information displayed in info panel
     }
  
-    public void setColour () {		
-     colour = new Color(255, 255, 255);
- 
-    }
      
-    public void erase () {				// erases the ball from the panel
+    public void erase () {			
        Graphics g = panel.getGraphics ();
        g2 = (Graphics2D) g;
  
@@ -95,7 +86,7 @@ public class Football extends Thread{
  
        if (!panel.isVisible ()) {return;}
 
-       y = y + dy;
+       y+= dy;
 
        Rectangle2D.Double goalRect = goal.getBoundingRectangle();
        Rectangle2D.Double myRect = this.getBoundingRectangle();
@@ -119,38 +110,6 @@ public class Football extends Thread{
    
       }
          
-
- 
-    /*   
-       Rectangle2D.Double batRect = bat.getBoundingRectangle();
-    
-       if (myRect.intersects(batRect)) {			// check if bat collides with the ball
- 
-       soundManager.playSound("hit", false);		// if so, request sound manager to play hit clip
-       infoPanel.incrementHits();			// increment hits by 1 in information panel
-       infoPanel.displayInfo();			// display updated information
- 
-       try {						// take a break before continuing
-         sleep (1000);
-       }
-       catch (InterruptedException e) {};
- 
-       infoPanel.decrementTime(1000);		// decrease time by 1000 millis in info panel
-       }
- 
-       if (y > dimension.height)	{			// increment misses by 1 in information panel
-       infoPanel.incrementMisses();
-       infoPanel.displayInfo();			// display updated information
-       }
-       
-       if (myRect.intersects(batRect) || (y > dimension.height)) {
-             x = random.nextInt(dimension.width - XSIZE);	// randomly generate x location of ball
-             y = 0;					// set y to top of the panel
-       setColour();					// set colour of ball
- 
-      // request sound manager to play reappear clip
-       }*/
-       //soundManager.playSound("appear", false);	
     }
 
 

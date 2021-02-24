@@ -1,17 +1,17 @@
-import javax.sound.sampled.AudioInputStream;		// for playing sound clips
+import javax.sound.sampled.AudioInputStream;		
 import javax.sound.sampled.*;
 import java.io.*;
 
-import java.util.HashMap;				// for storing sound clips
+import java.util.HashMap;			
 
-public class SoundManager {				// a Singleton class
+public class SoundManager {				
 	HashMap<String, Clip> clips;
 
-   	Clip hitClip = null;				// played when bat hits ball
-   	Clip appearClip = null;				// played when ball is re-generated
-   	Clip backgroundClip = null;			// played continuously after ball is created
+   	Clip hitClip = null;				
+   	Clip appearClip = null;				
+   	Clip backgroundClip = null;			
 
-	private static SoundManager instance = null;	// keeps track of Singleton instance
+	private static SoundManager instance = null;	
 
 	private SoundManager () {
 		clips = new HashMap<String, Clip>();
@@ -35,7 +35,7 @@ public class SoundManager {				// a Singleton class
 		clips.put("background", clip);
 	}
 
-	public static SoundManager getInstance() {	// class method
+	public static SoundManager getInstance() {	
 		if (instance == null)
 			instance = new SoundManager();
 		

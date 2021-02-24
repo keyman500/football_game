@@ -77,11 +77,11 @@ public class Goal extends Thread{
   public void run () {
   try {
       draw ();
-      while (true) {				// loop forever
+      while (true) {			
           erase();
           move ();
           draw();
-          sleep (50);			// increase value to slow down ball
+          sleep (50);			
       }
   }
   catch(InterruptedException e) {
