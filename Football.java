@@ -93,7 +93,6 @@ public class Football extends Thread{
        if(myRect.intersects(goalRect)){
           soundManager.playSound("goal", false);
          this.hit = true;
-          System.out.println("goal!");
           y = -5;
           infoPanel.incrementPoints(10);
           infoPanel.incrementHits();
