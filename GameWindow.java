@@ -131,6 +131,11 @@ public class GameWindow extends JFrame
 		if (keyCode == KeyEvent.VK_RIGHT) {
 			direction = 3;	
 		}
+		if(keyCode==KeyEvent.VK_SPACE){
+		 gamePanel.kickBall();
+
+		}
+
 
 		String keyText = e.getKeyText(e.getKeyCode());
 		statusBarL.setText("         " + keyText + " pressed." + "         ");

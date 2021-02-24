@@ -15,6 +15,9 @@ public class GamePanel extends JPanel {
    
    Bat bat;
    Ball ball;
+   Goal goal;
+   Player player;
+   Football football;
    InfoPanel infoPanel;
 
    SoundManager soundManager;
@@ -26,8 +29,8 @@ public class GamePanel extends JPanel {
    }
 
    public void createGameEntities() {
-       bat = new Bat (this, 10, 375);
-       //ball = new Ball (this);
+       player = new Player (this, 10, 375);
+       goal = new Goal(this,150,5);
    }
 
    public void startBall() {
@@ -35,27 +38,36 @@ public class GamePanel extends JPanel {
 	ball = new Ball (this, bat, infoPanel);
       	ball.start();
    }
+   public void kickBall(){
+      football = new Football(this, bat, infoPanel,player);
+      football.start();
+   }
+
 
    public void drawGameEntities() {
 
-       if (bat != null)
-       	  bat.draw();
+       if (player != null&&goal!= null){
+         player.draw();
+         goal.draw();
+       }
+       	
+      
 
    }
 
   public void updateGameEntities(int direction) {
 
-	if (bat == null)
+	if (player == null)
 	  return;
 
 	if (direction == 1) {
-	  bat.erase();
-       	  bat.moveLeft();
+	  player.erase();
+       	  player.moveLeft();
 	}
 	else
 	if (direction == 3) {
-	  bat.erase();
-       	  bat.moveRight();
+	  player.erase();
+       	  player.moveRight();
 	}
 
  }
