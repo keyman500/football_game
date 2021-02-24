@@ -181,6 +181,7 @@ public class GameWindow extends JFrame
 		if (command.equals(exitB.getText())) {
 			System.exit(0);
 		}
+
 		mainPanel.requestFocus();
 
 	}

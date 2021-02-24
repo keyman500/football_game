@@ -38,7 +38,7 @@ public class Goal extends Thread{
     Graphics g = panel.getGraphics ();
     g2 = (Graphics2D) g;
       Rectangle goal = new Rectangle(x, y, XSIZE, YSIZE);
-      g2.setColor(Color.RED);
+      g2.setColor(Color.gray);
       g2.fill(goal);
    }
 
@@ -72,41 +72,7 @@ public class Goal extends Thread{
    mvright=false;
     }
 
-
- /*   Rectangle2D.Double myRect = getBoundingRectangle();
-    Rectangle2D.Double batRect = bat.getBoundingRectangle();
- 
-    if (myRect.intersects(batRect)) {			// check if bat collides with the ball
-
-    soundManager.playSound("hit", false);		// if so, request sound manager to play hit clip
-    infoPanel.incrementHits();			// increment hits by 1 in information panel
-    infoPanel.displayInfo();			// display updated information
-
-    try {						// take a break before continuing
-      sleep (1000);
-    }
-    catch (InterruptedException e) {};
-
-    infoPanel.decrementTime(1000);		// decrease time by 1000 millis in info panel
-    }
-
-    if (y > dimension.height)	{			// increment misses by 1 in information panel
-    infoPanel.incrementMisses();
-    infoPanel.displayInfo();			// display updated information
-    }
-    
-    if (myRect.intersects(batRect) || (y > dimension.height)) {
-          x = random.nextInt(dimension.width - XSIZE);	// randomly generate x location of ball
-          y = 0;					// set y to top of the panel
-    setColour();					// set colour of ball
-
-   // request sound manager to play reappear clip
-    }*/
-    //soundManager.playSound("appear", false);	
  }
-
-
-
 
   public void run () {
   try {

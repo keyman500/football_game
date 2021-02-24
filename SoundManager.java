@@ -16,14 +16,23 @@ public class SoundManager {				// a Singleton class
 	private SoundManager () {
 		clips = new HashMap<String, Clip>();
 
-		Clip clip = loadClip("background.wav");
+		Clip clip = loadClip("./sounds/kick.wav");
+		clips.put("kick", clip);
+
+		clip = loadClip("./sounds/whistle.wav");
+		clips.put("whistle", clip);
+
+		clip = loadClip("./sounds/game_intro.wav");
+		clips.put("game_intro", clip);
+		
+		clip = loadClip("./sounds/goal_chant.wav");
+		clips.put("goal", clip);
+
+		clip = loadClip("./sounds/goal_missed.wav");
+		clips.put("missed", clip);
+
+		clip = loadClip("./sounds/backg.wav");
 		clips.put("background", clip);
-
-		clip = loadClip("hitSound.wav");
-		clips.put("hit", clip);
-
-		clip = loadClip("appearSound.wav");
-		clips.put("appear", clip);
 	}
 
 	public static SoundManager getInstance() {	// class method

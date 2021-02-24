@@ -24,7 +24,7 @@ public class GamePanel extends JPanel {
    SoundManager soundManager;
 
    public GamePanel (InfoPanel infoPanel) {
-	setBackground(Color.CYAN);
+	setBackground(Color.green);
 	this.infoPanel = infoPanel;
 	soundManager = SoundManager.getInstance();	// obtain reference to SoundManager
    }
@@ -40,18 +40,24 @@ public class GamePanel extends JPanel {
       	ball.start();
    }
    public void kickBall(){
+      
       if(football!=null){
        if(football.gety()<0){
+         soundManager.playSound("kick", false);
          football = new Football(this, bat, infoPanel,player,this.goal);
          football.start();
        }
       }else{
+      soundManager.playSound("kick", false);
       football = new Football(this, bat, infoPanel,player,this.goal);
       football.start();}
    }
    public void startGoal(){
+      soundManager.playSound("game_intro", false);
+      soundManager.playSound("whistle",false);
       goal = new Goal(this,150,5);
       goal.start();
+      soundManager.playSound("background",true);
    }
 
 

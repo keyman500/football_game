@@ -100,6 +100,7 @@ public class Football extends Thread{
        Rectangle2D.Double goalRect = goal.getBoundingRectangle();
        Rectangle2D.Double myRect = this.getBoundingRectangle();
        if(myRect.intersects(goalRect)){
+          soundManager.playSound("goal", false);
          this.hit = true;
           System.out.println("goal!");
           y = -5;
@@ -108,7 +109,9 @@ public class Football extends Thread{
           infoPanel.displayInfo();	
       
        }
-       if ((y <0)&&hit==false&&kicked==false)	{			
+       //missed the ball
+       if ((y <0)&&hit==false&&kicked==false)	{		
+         soundManager.playSound("missed", false);	
          infoPanel.incrementMisses();
          infoPanel.decreasePoints(10);
          infoPanel.displayInfo();	
