@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 */
 public class GamePanel extends JPanel {
    
-   int x, y;			// reference position to draw entities in 2D space
+   int x;
+   int y;			// reference position to draw entities in 2D space
    
    Bat bat;
    Ball ball;
@@ -30,7 +31,7 @@ public class GamePanel extends JPanel {
 
    public void createGameEntities() {
        player = new Player (this, 10, 375);
-       goal = new Goal(this,150,5);
+       goal = new Goal(this,150,5,football);
    }
 
    public void startBall() {
@@ -47,7 +48,6 @@ public class GamePanel extends JPanel {
       }else{
       football = new Football(this, bat, infoPanel,player);
       football.start();}
-   
    }
    public void startGoal(){
       goal = new Goal(this,150,5);

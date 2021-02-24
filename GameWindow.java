@@ -133,6 +133,7 @@ public class GameWindow extends JFrame
 		}
 		if(keyCode==KeyEvent.VK_SPACE){
 		 gamePanel.kickBall();
+		 gamePanel.drawGameEntities();
 
 		}
 

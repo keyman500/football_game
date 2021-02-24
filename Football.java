@@ -48,12 +48,12 @@ public class Football extends Thread{
  
        dimension = panel.getSize(); 
        x = player.getx();
-       y = player.gety() - 5;						// set y to top of the panel
+       y = player.gety() - 10;						// set y to top of the panel
  
        setColour();					// set colour of the ball
  
        dx = 0;
-       dy = -5;
+       dy = -10;
    
        infoPanel.displayInfo();				// display information on information panel	
     }
@@ -89,9 +89,10 @@ public class Football extends Thread{
  
        if (!panel.isVisible ()) return;
 
-       y = y + dy;					// change vertical position of ball
+       y = y + dy;
+       
  
-    /*   Rectangle2D.Double myRect = getBoundingRectangle();
+    /*   
        Rectangle2D.Double batRect = bat.getBoundingRectangle();
     
        if (myRect.intersects(batRect)) {			// check if bat collides with the ball
@@ -144,6 +145,9 @@ public class Football extends Thread{
 
      public int gety(){
         return this.y;
+     }
+     public void sety(int y){
+        this.y = y;
      }
  
  

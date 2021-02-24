@@ -36,7 +36,6 @@ public class Player {
       Graphics g = panel.getGraphics ();
       g2 = (Graphics2D) g;
 
-      // Draw the mouth
       Ellipse2D bat =new Ellipse2D.Double (x, y, XSIZE, YSIZE);
       g2.setColor(Color.RED);
       g2.fill(bat);
