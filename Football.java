@@ -53,7 +53,7 @@ public class Football extends Thread{
        setColour();					// set colour of the ball
  
        dx = 0;
-       dy = -10;
+       dy = -30;
    
        infoPanel.displayInfo();				// display information on information panel	
     }

@@ -55,40 +55,6 @@ public class Goal extends Thread{
       g2.fill (new Rectangle(x, y, XSIZE, YSIZE));
    }
 
-   public void moveLeft () {
-      Dimension dimension;
-
-      if (!panel.isVisible ()) return;
-
-      erase();
-
-      dimension = panel.getSize();
-
-      if (x - dx > 0)
-	  x = x - dx;      
-
-	  // check if x is outside the left side of the panel
-	  // NB: dimension.width is the width of the panel, and
-	  //     dimension.height is the height of the panel
-   }
-
-   public void moveRight () {
-      Dimension dimension;
-
-      if (!panel.isVisible ()) return;
-
-      erase();
-
-      dimension = panel.getSize();
-
-      if (x + dx + XSIZE < dimension.width)
-	  x = x + dx;      
-
-	  // check if x is outside the right side of the panel
-	  // NB: dimension.width is the width of the panel, and
-	  //     dimension.height is the height of the panel
-   }
-
    public void move () {
     
     if (!panel.isVisible ()) return;
@@ -107,9 +73,17 @@ public class Goal extends Thread{
     if((x-dx)==0){
    mvright=false;
     }
+
+    if(football==null){
+  //     System.out.println("it's null") ;
+      
+}else{
+
+    System.out.println("ok: "+football.gety());
     Rectangle2D.Double myRect = getBoundingRectangle();
     Rectangle2D.Double fbRect = football.getBoundingRectangle();
     if(myRect.intersects(fbRect)){
+       System.out.println("goal");
        try{
           sleep(200);
        }catch (InterruptedException e) {};
@@ -117,6 +91,8 @@ public class Goal extends Thread{
        football.sety(-1);
        
     }
+
+   }
 
  /*   Rectangle2D.Double myRect = getBoundingRectangle();
     Rectangle2D.Double batRect = bat.getBoundingRectangle();

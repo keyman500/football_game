@@ -31,7 +31,7 @@ public class GamePanel extends JPanel {
 
    public void createGameEntities() {
        player = new Player (this, 10, 375);
-       goal = new Goal(this,150,5,football);
+       goal = new Goal(this,150,5,this.football);
    }
 
    public void startBall() {
@@ -50,7 +50,7 @@ public class GamePanel extends JPanel {
       football.start();}
    }
    public void startGoal(){
-      goal = new Goal(this,150,5);
+      goal = new Goal(this,150,5,this.football);
       goal.start();
    }
 
